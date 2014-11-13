@@ -1,160 +1,87 @@
-% LaTeX file for resume 
-% This file uses the resume document class (res.cls)
+\documentclass[letterpaper,12pt,oneside,compact]{article}
+\usepackage{ykkres}
 
-\documentclass{res} 
-\usepackage{helvet} % uses helvetica postscript font (download helvetica.sty)
-\renewcommand{\familydefault}{\sfdefault}
-%\usepackage{newcent}   % uses new century schoolbook postscript font 
+\name{Alison Chan}
 
-%\usepackage{charter}
-\newsectionwidth{0pt}  % So the text is not indented under section headings
-\usepackage{fancyhdr}  % use this package to get a 2 line header
-\renewcommand{\headrulewidth}{0pt} % suppress line drawn by default by fancyhdr
-\setlength{\headheight}{24pt} % allow room for 2-line header
-\setlength{\headsep}{24pt}  % space between header and text
-\pagestyle{fancy}     % set pagestyle for document
-\rhead{ {\sl Alison Chan}\\{\sl p. \thepage} } % put text in header (right side)
-\cfoot{}                                     % the foot is empty
-\topmargin=-0.5in % start text higher on the page
+\address{PO Box 320426, Flint, MI 48532}
+
+\phone{+1 909 278 7753}
+
+\email{alisonc@alisonc.net}
+
+\website{\weburl{http://alisonc.net}}
 
 \begin{document}
-\thispagestyle{empty} % this page has no header  
-\name{Alison Chan\\[12pt]}% the \\[12pt] adds a blank line after name
+\maketitle
 
-\address{PO Box 320426~\textperiodcentered~Flint, MI 48532~\textperiodcentered~+1 909 278 7753~\textperiodcentered~alisonc@alisonc.net
-}      
+\begin{heading}{Education}
+\begin{resitem}{BS Computer Science; BS Computer Engineering\hfill 2010 -- present}
+\item Kettering University, Flint, MI
+\item Thesis: \emph{Developing a Reliable Communications Protocol for Advanced Manufacturing}
+\item Systems and Data Security concentration
+\item International Studies minor
+\item Current Senior III
+\item Expected graduation date: fall 2015
+\end{resitem}
+\end{heading}
 
-\begin{resume}
- 
-%\section{\centerline{Objective}}
-%\vspace{8pt} % provide vertical space between section title and contents
-%To obtain a challenging co-op position related to the fields of computer
-%science or computer engineering, which offers opportunities to apply classroom 
-%learning and contribute to business development. Especially interested in 
-%research opportunities, computer networking, Linux/UNIX, computational linguistics, 
-%and user interfaces. 
- 
-\vspace{0.1in}
-\section{Education} 
-\vspace{8pt} 
-    {\sl Kettering University}, Flint, MI \hfill July 2010 to present\\
-    Bachelor of Science, Computer Science; Systems and Data Security concentration\\
-    Bachelor of Science, Computer Engineering\\
-    Minor in Pre-Law\\
-    Current Senior III (A-section)\\
-    Expected completion date June 2015\\
-    GPA 3.57/4.0
-    
-   % {\sl Powers High School}, Flint, MI \hfill August 2006 to June 2010\\
-   % Graduated June 2010
-  
-\vspace{0.1in} 
-\section{Professional Experience} 
-\vspace{8pt} 
-{\sl Kettering University}, Flint, MI \\
-Department of Computer Science: Research Assistant \hfill March 2013 to present
+\begin{heading}{Experience}
+\begin{resitem}{Research Assistant\hfill 2013 -- present}
+\item Kettering University Department of Computer Science, Flint, MI
+\item Organised lab activities for CS491 High-Speed Networking and 
+      Distributed Applications course
+\item Configured OpenFlow switches for Kettering's Advanced Network 
+      Applications Laboratory
+\item Developed and tested OpenFlow controller applications and routing algorithms 
+      for the Reliable Communications Protocol
+\end{resitem}
 
-   \begin{itemize} \itemsep -2pt
-   \item Organised lab activities for CS491 High-Speed Networking and 
-         Distributed Applications course.
-   \item Configured OpenFlow switches for Kettering's Advanced Network 
-         Applications Laboratory.
-   \item Developed OpenFlow controller applications and routing algorithms 
-         for the Reliable Communications Protocol.
-   \end{itemize}
-\vspace{-8pt}
-Customer Service and Programs: Student Caller \hfill July 2012 to present
+\begin{resitem}{Student Caller\hfill 2012 -- present}
+\item Kettering University Department of Customer Service and Programs, Flint, MI
+\item Invited prospective students to Kettering open house events
+\item Assisted in directing self-guided tour traffic during open house events
+\item Followed up with event attendees by phone calls and postcards
+\end{resitem}
 
-   \begin{itemize} \itemsep -2pt
-   \item Invited prospective students to Kettering open house events, and 
-   confirmed their registrations for same. 
-   \item Followed up with event attendees by writing postcards.
-   \end{itemize} 
+\begin{resitem}{Software Engineering Co-op\hfill 2012}
+\item Livio, Ferndale, MI
+\item Developed iOS apps and network code for trade show demonstrations
+\item Maintained client-facing documentation of Livio APIs
+\end{resitem}
 
-{\sl Livio}, Ferndale, MI \\
-Software Engineering Co-op       \hfill   October 2012 to January 2013
-  
-   \begin{itemize} \itemsep -2pt % reduce space between items
-   \item Developed mobile apps and designed network code for iOS platform.
-   \item Maintained client-facing documentation of APIs. 
-   \end{itemize}
+\begin{resitem}{Software Engineering Co-op\hfill 2010 -- 2012}
+\item New Eagle, Ann Arbor, MI
+\item Implemented PC applications to interact with embedded control units
+\item Created embedded display applications using the CanTrak SDK
+\item Evaluated candidate products for distribution
+\item Assisted in preparing product marketing materials and internal and 
+      external documentation
+\end{resitem}
+\end{heading}
 
-{\sl New Eagle}, Ann Arbor, MI \\
-Software Engineering Co-op \hfill October 2010 to June 2012
+\begin{heading}{Skills}
+\begin{resitem}{Technical}
+\item \emph{Electronics}\hspace*{10pt} Test equipment (e.\ g.\ oscilloscopes, function generators); hand soldering (through-hole \& SMD)
+\item \emph{Automotive}\hspace*{10pt} CAN, J1939, NMEA2000, OBD2; J1587; basic maintenance \& repair
+\end{resitem}
+\begin{resitem}{Computer related}
+\item \emph{Networking}\hspace*{10pt} OpenWrt; OpenFlow; TCP/IP; Bonjour
+\item \emph{Operating systems}\hspace*{10pt} Linux (desktop \& embedded); Windows
+\item \emph{Hardware platforms}\hspace*{10pt} x86/x86-64; embedded MIPS; embedded ARM; SPARC
+\item \emph{Programming languages}\hspace*{10pt} Python; shell script; \LaTeX{}; C (desktop \& embedded); C\#; Objective-C; Java
+\item \emph{Collaboration}\hspace*{10pt} Git, Github; Trac; SVN; Salesforce
+\item \emph{Web technologies}\hspace*{10pt} MediaWiki; Facebook Page administration; Octopress
+\item \emph{Frameworks}\hspace*{10pt} Pox, Windows Forms, WPF
+\item \emph{Development environments}\hspace*{10pt} Visual Studio; NetBeans
+\end{resitem}
+\end{heading}
 
-   \begin{itemize} \itemsep -2pt
-   \item Implemented PC applications to interact with embedded control units.
-   \item Created embedded display applications.
-   \item Evaluated prospective products for distribution.
-   \item Assisted in preparing product marketing materials and internal and 
-         external documentation.
-   \end{itemize} 
+%\begin{heading}{Activities}
+%\begin{resitem}{Somewhere}
+%\item Something Nice
+%\end{resitem}
+%\end{heading}
 
-\vspace{0.1in} 
-\section{Technical Skills}
-
-\begin{description} \itemsep -2pt
-   \item[Networking] OpenWrt; OpenFlow; TCP/IP; Bonjour
-   \item[Operating systems] Linux (desktop \& embedded); Windows; iOS
-   \item[Hardware platforms] x86/x86-64; embedded MIPS; embedded ARM; SPARC
-   \item[Programming languages] Python; shell script; \LaTeX{}; C (desktop \& embedded); C\#; Objective-C; Java
-   \item[Electronics] Test equipment; soldering
-   \item[Automotive] CAN, J1939, NMEA2000, OBD2; J1587; basic maintenance \& repair
-   \item[Collaboration] Git, Github; Trac; SVN; Salesforce
-   \item[Web technologies] MediaWiki; Facebook Pages; Octopress
-   \item[Frameworks] Pox; Windows Forms; WPF
-   \item[Development environments] Visual Studio; NetBeans; Xcode
-\end{description}
-
-\vspace{0.1in} 
-\section{\centerline{Student Organisation Memberships}} 
-\vspace{-5pt} % reduce space between section title and contents
-\begin{center}
-    President, Kettering University Allies \\
-    %Tenor, Kettering University Choir \\
-    Member, Liberal Studies Student Advisory Board \\
-    %Member, Green Engineering Organisation
-\end{center}
- 
-\vspace{0.1in} 
-\section{\centerline{Professional Organisation Memberships}} 
-\vspace{-5pt} % reduce space between section title and contents
-\begin{center}
-    Member, Association for Computing Machinery \\
-    Member, ACM SIGACCESS \\
-    Member, MichiCHI \\
-    Member, Society for Disability Studies
-    %Member, All Hands Active
- \end{center}
- 
-\vspace{0.1in}
-\section{\centerline{Honours and Awards}} 
-\vspace{-5pt}
-\begin{center}
-	Member, Upsilon Pi Epsilon \\
-	Pledge of the Computing Professional \\
-	Kettering University Presidential Merit Scholarship \\
-    Kettering University Dean's List
-\end{center}
-
-\vspace{0.1in}
-\begin{center}
-{\sl References available upon request.}
-\end{center}
-
- 
-\end{resume} 
 \end{document}
-
-
-
-
-
-
-
-
-
-
-
 
 
