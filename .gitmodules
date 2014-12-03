@@ -1,3 +1,3 @@
-[submodule "tccv"]
-	path = tccv
-	url = git@github.com:alis0nc/tccv.git
+[submodule "actccv"]
+	path = actccv
+	url = git@github.com:alis0nc/actccv.git
