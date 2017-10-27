@@ -5,4 +5,5 @@
 
 pdflatex -jobname=resume '\input{resume}'
 pdflatex -jobname=resume_pub '\def\PUBLIC{}\input{resume}'
+pdflatex -jobname=resume_shalem '\def\SHALEM{}\input{resume}'
 
