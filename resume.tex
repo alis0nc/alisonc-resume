@@ -12,17 +12,12 @@
 \pagestyle{empty}
 \raggedbottom
 \raggedright
-\usepackage[svgnames]{xcolor}
-\usepackage{framed}
 \usepackage{tocloft}
 \usepackage{etoolbox}
+% Roboto and Inconsolata fonts
+\usepackage[sfdefault]{roboto}
+\usepackage{zi4}
 \robustify\cftdotfill
-
-%-----------------------------------------------------------
-%Edit these values as you see fit
-\setlength{\outerbordwidth}{3pt}  % Width of border outside of title bars
-\definecolor{shadecolor}{gray}{0.75}  % Outer background color of title bars (0 = black, 1 = white)
-\definecolor{shadecolorB}{gray}{0.93}  % Inner background color of title bars
 
 %-----------------------------------------------------------
 %Margin setup
@@ -43,11 +38,10 @@
 %Custom commands
 \newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
 \newcommand{\resheading}[1]{\vspace{4pt}
-  \parbox{\textwidth}{\setlength{\FrameSep}{\outerbordwidth}
-    \begin{shaded}
-
-\setlength{\fboxsep}{0pt}\framebox[\textwidth][l]{\setlength{\fboxsep}{4pt}\fcolorbox{shadecolorB}{shadecolorB}{\textbf{\sffamily{\mbox{~}\makebox[6.762in][l]{\large #1} \vphantom{p\^{E}}}}}}
-    \end{shaded}
+  \parbox{\textwidth}{
+      \framebox[\textwidth][l]{
+          {\textbf{\sffamily{\large #1}}}
+      }
   }\vspace{-8pt}
 }
 
@@ -56,22 +50,22 @@
         \textbf{#1} & #2 \\
         \textit{#3} & \textit{#4} \\
 \end{tabular*}\vspace{-6pt}}
-\renewcommand{\familydefault}{\sfdefault}
 %-----------------------------------------------------------
 \begin{document}
 
-\begin{tabular*}{7in}{l@{\extracolsep{\fill}}cr}
 
-\textbf{{\Large Alison~Chan}} & \textbf{Farmington~Hills~MI} \\
-\texttt{alisonc@alisonc.net} & \ifdef{\PUBLIC}{Email~for~phone~number}{\texttt{+1~909~278~7753}} & \texttt{alisonc.net} \\
-\texttt{twitter.com/alisonc42} & & \texttt{github.com/alis0nc}
-
-\end{tabular*}
-
-\resheading{Summary}
+\parbox{\textwidth}{\centering
+    \textbf{{\Large Alison~Chan}} \\
+    \textbf{Farmington~Hills~MI} \\
+    \texttt{alisonc@alisonc.net}~\textbullet~%
+    \ifdef{\PUBLIC}{Email~for~phone~number}{+1~909~278~7753}~\textbullet~%
+    \texttt{alisonc.net}~\textbullet~%
+    \texttt{github.com/alis0nc}
+}
+\vspace{6pt}
 
 {\large
-Software engineering generalist with a track record of producing clean code, eliminating technical debt,
+Software engineer generalist with a track record of producing clean code, eliminating technical debt,
 and digging into complicated problems spanning multiple systems. 
 % Modify this sentence if needed. 
 Seeking a challenging technical track position with opportunities to learn new technologies and tools.
