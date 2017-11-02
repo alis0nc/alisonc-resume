@@ -33,7 +33,8 @@
 \setlength{\topmargin}{-0.3in}
 \setlength{\topskip}{0in}
 \setlength{\voffset}{0.1in}
-
+\newlength{\listsep}
+\setlength{\listsep}{-0.1\baselineskip}
 %-----------------------------------------------------------
 %Custom commands
 \newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
@@ -42,11 +43,11 @@
       \framebox[\textwidth][l]{
           {\textbf{\sffamily{\large #1}}}
       }
-  }\vspace{-8pt}
+  }
 }
 
 \newcommand{\ressubheading}[4]{
-\begin{tabular*}{6.5in}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
+\begin{tabular*}{\textwidth}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
         \textbf{#1} & #2 \\
         \textit{#3} & \textit{#4} \\
 \end{tabular*}\vspace{-6pt}}
@@ -75,12 +76,17 @@ Seeking a challenging technical track position with opportunities to learn new t
 \resheading{Professional Experience}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\OMITVOLUNTEER{}
+\ifdef{\OMITVOLUNTEER}{}
+{
+\ressubheading{Penguicon}{Southfield MI}{Head of Logistics}{2015 December -- present}
+\begin{itemize} \itemsep \listsep \small
+    \resitem{}
+\end{itemize}
+}
 
-\begin{itemize}
-
-\item
 \ressubheading{X by 2}{Farmington Hills MI}{Software Engineering Consultant}{2015 October -- 2017 August}
-\begin{itemize}\small
+\begin{itemize}\itemsep \listsep  \small
     \resitem{{\bf Client engagement: Claims System for Fortune 500 P\&C insurer}}
     \resitem{Reengineered Java EE/Apache Camel/Spring document management integration code for cleaner data model 
     	     and better fault tolerance. This led to fewer errored documents, improved performance, and easier troubleshooting.}
@@ -95,69 +101,60 @@ Seeking a challenging technical track position with opportunities to learn new t
     \resitem{Researched and contacted potential vendors for requirements analysis and demos with stakeholders.}
 \end{itemize}
 
-\item
+
 \ressubheading{Kettering University}{Flint MI}{Department of Computer Science : Research Assistant}{2013 April -- 2015 June}
-\begin{itemize}\small
+\begin{itemize}\itemsep \listsep \small
     \resitem{Configured OpenFlow software defined networking switches for Kettering's 
     	     Laboratory for Advanced Network Applications and developed and tested OpenFlow controller applications.}
 \end{itemize}
 
 \ifdef{\SHALEM}{
-\item
 \ressubheading{Kettering University}{Flint MI}{Department of Customer Service \& Programs : Student Caller}{2012 July -- 2015 September}
-\begin{itemize}\small
+\begin{itemize}\itemsep \listsep \small
     \resitem{Invited prospective students to Kettering open house events and followed up with postcards 
              and phone calls after those events.}
 \end{itemize}
 
-\item
 \ressubheading{Livio}{Ferndale MI}{Software Engineering Co-op}{2012 September -- 2012 December}
-\begin{itemize}\small
+\begin{itemize}\itemsep \listsep \small
     \resitem{Developed iOS apps and backend network code for sales demonstrations.}
 \end{itemize}
 }{}
 
-\item
 \ressubheading{New Eagle}{Ann Arbor MI}{Software Engineering Co-op}{2010 October -- 2012 June}
-\begin{itemize}\small
+\begin{itemize}\itemsep \listsep \small
     \resitem{Created HMI applications for embedded display hardware and PC applications to calibrate electronic control modules.}
     \resitem{Worked with product managers to evaluate products being considered for distribution.}
 \end{itemize}
 
-\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\resheading{Skills}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{-0.5\baselineskip}
+\begin{itemize} \itemsep 2\listsep
+    
+    \item {\bf Programming languages:} Java; Python; Gosu; JavaScript; \LaTeX{}; C$\sharp$
+    \item {\bf Frameworks:} Apache Camel; Spring Web Services
+    \item {\bf Databases:} MS SQL Server
+    \item {\bf Operating systems:} Linux (desktop \& embedded); Windows
+    \item {\bf Networking:} Ubiquiti EdgeOS and UniFi platform; TCP/IP
+    \item {\bf Workflow:} git; GitHub; JIRA; AccuRev; bash script
+    
+\end{itemize}
+%\ifdef{\SHALEM}{\eject}{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \resheading{Education}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{itemize}
-    
-\item
 \ressubheading{Kettering University}{Flint MI}{Coursework completed for dual degree BS Computer Science / BS Computer Engineering}{2010 -- 2015}
-\begin{itemize}
+\begin{itemize}\itemsep \listsep \small
    \resitem{Systems and Data Security concentration}
    \resitem{International Studies minor}
 \end{itemize}
-    
-\end{itemize}
-\ifdef{\SHALEM}{\eject}{}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\resheading{Skills}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{itemize} \itemsep -3pt
-
-\item {\bf Programming languages:} Java; Python; Gosu; JavaScript; \LaTeX{}; C$\sharp$
-\item {\bf Frameworks:} Apache Camel; Spring Web Services
-\item {\bf Databases:} MS SQL Server
-\item {\bf Operating systems:} Linux (desktop \& embedded); Windows
-\item {\bf Networking:} Ubiquiti EdgeOS and UniFi platform; TCP/IP
-\item {\bf Workflow:} git; GitHub; JIRA; AccuRev; bash script
-
-\end{itemize}
 
 \end{document}
