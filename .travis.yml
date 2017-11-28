@@ -1,8 +1,17 @@
 sudo: required
 dist: xenial
 before_install:
-- sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-full
+- sudo apt-get -qq update
+- sudo apt-get install -y --no-install-recommends texlive-full xzdec
 - tlmgr init-usertree
+- tlmgr update --all
 - tlmgr install zi4 roboto
 script:
 - pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume '\def\PROJECTS{}\input{resume}'
+- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_noproj '\input{resume}'
+- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_pub '\def\PROJECTS{}\def\PUBLIC{}\input{resume}'
+- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_noproj_pub '\def\PUBLIC{}\input{resume}'
+- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_full '\def\SHALEM{}\input{resume}'
+- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_full_pub '\def\SHALEM{}\def\PUBLIC{}\input{resume}'
+- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_monster '\def\PROJECTS{}\def\MONSTER{}\input{resume}'
+- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_dice '\def\PROJECTS{}\def\DICE{}\input{resume}'
