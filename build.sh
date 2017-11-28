@@ -3,12 +3,12 @@
 # with and without redacted phone number
 # (c) 2017 Alison Chan alisonc@alisonc.net
 
-pdflatex -jobname=resume '\input{resume}'
-pdflatex -jobname=resume_pub '\def\PUBLIC{}\input{resume}'
+pdflatex -jobname=resume '\def\PROJECTS{}\input{resume}'
+pdflatex -jobname=resume_pub '\def\PROJECTS{}\def\PUBLIC{}\input{resume}'
 pdflatex -jobname=resume_full '\def\SHALEM{}\input{resume}'
 pdflatex -jobname=resume_full_pub '\def\SHALEM{}\def\PUBLIC{}\input{resume}'
-pdflatex -jobname=resume_monster '\def\SHALEM{}\def\MONSTER{}\input{resume}'
-pdflatex -jobname=resume_dice '\def\SHALEM{}\def\DICE{}\input{resume}'
+pdflatex -jobname=resume_monster '\def\PROJECTS{}\def\MONSTER{}\input{resume}'
+pdflatex -jobname=resume_dice '\def\PROJECTS{}\def\DICE{}\input{resume}'
 
 # optimise file size
 # TODO: don't assume pdfsizeopt is going to give us any better, actually 
