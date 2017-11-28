@@ -53,12 +53,18 @@
 \end{tabular*}\vspace{-6pt}}
 %-----------------------------------------------------------
 \begin{document}
-
+\ifdef{\MONSTER}{\def\PUBLIC{}}{}
+\ifdef{\DICE}{\def\PUBLIC{}}{}
 
 \parbox{\textwidth}{\centering
     \textbf{{\Large Alison~Chan}} \\
     \textbf{Farmington~Hills~MI} \\
-    \texttt{alisonc@alisonc.net}~\textbullet~%
+    % apologies for the horrendous mess of brackets but this is the only way that
+    % i could figure out how to not get spurioius spaces
+    \ifdef{\PUBLIC}{\ifdef{\MONSTER}{\texttt{resm@alisonc.net}%
+        }{\ifdef{\DICE}{\texttt{resd@alisonc.net}%
+        }{\texttt{res@alisonc.net}%
+    }}}{\texttt{hireme@alisonc.net}}~\textbullet~%
     \ifdef{\PUBLIC}{Email~for~phone~number}{+1~909~278~7753}~\textbullet~%
     \texttt{alisonc.net}~\textbullet~%
     \texttt{github.com/alis0nc}
