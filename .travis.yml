@@ -1,0 +1,8 @@
+sudo: required
+dist: xenial
+before_install:
+- sudo apt-get -qq update && sudo apt-get -y --no-install-recommends texlive-full
+- tlmgr init-usertree
+- tlmgr install zi4 roboto
+script:
+- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume '\def\PROJECTS{}\input{resume}'
