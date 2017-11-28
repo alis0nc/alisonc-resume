@@ -17,3 +17,17 @@ script:
 - pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_full_pub '\def\SHALEM{}\def\PUBLIC{}\input{resume}'
 - pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_monster '\def\PROJECTS{}\def\MONSTER{}\input{resume}'
 - pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_dice '\def\PROJECTS{}\def\DICE{}\input{resume}'
+deploy:
+  provider: releases
+  api_key: ${api_key}
+  file: 
+  - "resume.pdf"
+  - "resume_noproj.pdf"
+  - "resume_pub.pdf"
+  - "resume_noproj_pub.pdf"
+  - "resume_full.pdf"
+  - "resume_full_pub.pdf"
+  - "resume_monster.pdf"
+  - "resume_dice.pdf"
+  skip_cleanup: true
+  overwrite: true
