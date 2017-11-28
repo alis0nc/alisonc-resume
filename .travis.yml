@@ -4,7 +4,7 @@ before_install:
 - tar zxf install-tl-unx.tar.gz
 - install-tl-*/install-tl --profile=travis-ci/texlive.profile
 # this is fragile; TODO figure out how to programmatically get architecture
-- export PATH=$PATH:~/texlive/2017/bin/x86_64-linux/
+- export PATH=$PATH:/tmp/texlive/2017/bin/x86_64-linux/
 - tlmgr install texliveonfly
 # dynamically grab dependencies
 - texliveonfly resume.tex
