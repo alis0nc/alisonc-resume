@@ -1,7 +1,7 @@
 sudo: required
 dist: xenial
 before_install:
-- sudo apt-get -qq update && sudo apt-get -y --no-install-recommends texlive-full
+- sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-full
 - tlmgr init-usertree
 - tlmgr install zi4 roboto
 script:
