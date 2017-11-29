@@ -9,14 +9,23 @@ before_install:
 # dynamically grab dependencies
 - texliveonfly resume.tex
 script:
-- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume '\def\PROJECTS{}\input{resume}'
-- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_noproj '\input{resume}'
-- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_pub '\def\PROJECTS{}\def\PUBLIC{}\input{resume}'
-- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_noproj_pub '\def\PUBLIC{}\input{resume}'
-- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_full '\def\SHALEM{}\input{resume}'
-- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_full_pub '\def\SHALEM{}\def\PUBLIC{}\input{resume}'
-- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_monster '\def\PROJECTS{}\def\MONSTER{}\input{resume}'
-- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_dice '\def\PROJECTS{}\def\DICE{}\input{resume}'
+- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_n '\def\PROJECTS{}\input{resume}'
+- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_noproj_n '\input{resume}'
+- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_pub_n '\def\PROJECTS{}\def\PUBLIC{}\input{resume}'
+- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_noproj_pub_n '\def\PUBLIC{}\input{resume}'
+- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_full_n '\def\SHALEM{}\input{resume}'
+- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_full_pub_n '\def\SHALEM{}\def\PUBLIC{}\input{resume}'
+- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_monster_n '\def\PROJECTS{}\def\MONSTER{}\input{resume}'
+- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_dice_n '\def\PROJECTS{}\def\DICE{}\input{resume}'
+# psoaas is hosted on alisonc.net
+- curl -F "file=@resume_n.pdf" https://alisonc.net/pdfsizeopt > resume.pdf
+- curl -F "file=@resume_noproj_n.pdf" https://alisonc.net/pdfsizeopt > resume_noproj.pdf
+- curl -F "file=@resume_pub_n.pdf" https://alisonc.net/pdfsizeopt > resume_pub.pdf
+- curl -F "file=@resume_noproj_pub_n.pdf" https://alisonc.net/pdfsizeopt > resume_noproj_pub.pdf
+- curl -F "file=@resume_full_n.pdf" https://alisonc.net/pdfsizeopt > resume_full.pdf
+- curl -F "file=@resume_full_pub_n.pdf" https://alisonc.net/pdfsizeopt > resume_full_pub.pdf
+- curl -F "file=@resume_monster_n.pdf" https://alisonc.net/pdfsizeopt > resume_monster.pdf
+- curl -F "file=@resume_dice_n.pdf" https://alisonc.net/pdfsizeopt > resume_dice.pdf
 before_deploy:
   # have to unignore PDFs to deploy them
   - cp .gitignore .gitignore.orig
