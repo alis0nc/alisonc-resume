@@ -17,6 +17,12 @@ script:
 - pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_full_pub '\def\SHALEM{}\def\PUBLIC{}\input{resume}'
 - pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_monster '\def\PROJECTS{}\def\MONSTER{}\input{resume}'
 - pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_dice '\def\PROJECTS{}\def\DICE{}\input{resume}'
+before-deploy:
+  # have to unignore PDFs to deploy them
+  - cp .gitignore .gitignore.orig
+  - cat .gitignore.orig | sed -e 's/^*.pdf//' > .gitignore
+  # clean up install-tl directory
+  - rm -rf install-tl-*
 deploy:
   provider: pages
   skip_cleanup: true
