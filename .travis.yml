@@ -18,6 +18,10 @@ script:
 - pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_monster '\def\PROJECTS{}\def\MONSTER{}\input{resume}'
 - pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_dice '\def\PROJECTS{}\def\DICE{}\input{resume}'
 before_deploy:
+  # move the ones which have the phone number to the with-phone-number directory
+  mv resume.pdf with-phone-number/
+  mv resume_noproj.pdf with-phone-number/
+  mv resume_full.pdf with-phone-number/
   # have to unignore PDFs to deploy them
   - cp .gitignore .gitignore.orig
   - cat .gitignore.orig | sed -e 's/^*.pdf//' > .gitignore
