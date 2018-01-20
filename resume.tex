@@ -47,11 +47,16 @@
   }
 }
 
+%\newcommand{\ressubheading}[4]{
+%\begin{tabular*}{\textwidth}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
+%        \textbf{#1} & #2 \\
+%        \textit{#3} & \textit{#4} \\
+%\end{tabular*}\vspace{-6pt}}
 \newcommand{\ressubheading}[4]{
 \begin{tabular*}{\textwidth}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
-        \textbf{#1} & #2 \\
-        \textit{#3} & \textit{#4} \\
-\end{tabular*}\vspace{-6pt}}
+    \textbf{#3} at #1 & \textit{#2, #4}\\
+\end{tabular*}\vspace{-6pt}
+}
 %-----------------------------------------------------------
 \begin{document}
 \ifdef{\MONSTER}{\def\PUBLIC{}}{}
@@ -100,14 +105,14 @@ Seeking a challenging software engineer position with opportunities to learn new
 \end{itemize}
 
 
-\ressubheading{Kettering University}{Flint MI}{Department of Computer Science : Research Assistant}{April 2013 -- June 2015}
+\ressubheading{Kettering University Department of Computer Science}{Flint MI}{Research Assistant}{April 2013 -- June 2015}
 \begin{itemize}\itemsep \listsep \small
     \resitem{Configured OpenFlow software defined networking switches for Kettering's 
     	     Laboratory for Advanced Network Applications and developed and tested OpenFlow controller applications.}
 \end{itemize}
 
 \ifdef{\SHALEM}{
-\ressubheading{Kettering University}{Flint MI}{Department of Customer Service \& Programs : Student Caller}{July 2012 -- September 2015}
+\ressubheading{Kettering University Department of Marketing, Communications, \& Enrollment}{Flint MI}{Student Caller}{July 2012 -- September 2015}
 \begin{itemize}\itemsep \listsep \small
     \resitem{Invited prospective students to Kettering open house events and followed up with postcards 
              and phone calls after those events.}
@@ -178,7 +183,7 @@ Seeking a challenging software engineer position with opportunities to learn new
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\ressubheading{Kettering University}{Flint MI}{Coursework completed for dual degree BS Computer Science / BS Computer Engineering}{2010 -- 2015}
+\ressubheading{Kettering University}{Flint MI}{Partial BS Computer Science / BS Computer Engineering}{2010 -- 2015}
 \begin{itemize}\itemsep \listsep \small
    \resitem{Systems and Data Security concentration}
    \resitem{International Studies minor}
