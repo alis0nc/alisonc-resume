@@ -43,11 +43,11 @@ deploy:
     branch: master
 - provider: script
   skip_cleanup: true
-  script: ssh -4 -o "StrictHostKeyChecking no" travisdeploy@mat-zemlya.alisonc.net mkdir -p /home/travisdeploy/public_html/resume/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER
+  script: ssh -4 -o "StrictHostKeyChecking no" travisdeploy@alisonc.net mkdir -p /home/travisdeploy/public_html/resume/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER
   on:
     all_branches: true
 - provider: script
   skip_cleanup: true
-  script: rsync -e 'ssh -4 -o "StrictHostKeyChecking no"' -am --delete-after --include='*.pdf' --include='*/' --exclude='*' $TRAVIS_BUILD_DIR travisdeploy@mat-zemlya.alisonc.net:/home/travisdeploy/public_html/resume/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER
+  script: rsync -e 'ssh -4 -o "StrictHostKeyChecking no"' -am --delete-after --include='*.pdf' --include='*/' --exclude='*' $TRAVIS_BUILD_DIR travisdeploy@alisonc.net:/home/travisdeploy/public_html/resume/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER
   on:
     all_branches: true
