@@ -15,6 +15,7 @@
 \usepackage{tocloft}
 \usepackage{etoolbox}
 \usepackage[hidelinks]{hyperref}
+\usepackage{array}
 % Roboto and Inconsolata fonts
 \usepackage[sfdefault]{roboto}
 \usepackage{zi4}
@@ -57,20 +58,17 @@
 \ifdef{\MONSTER}{\def\PUBLIC{}}{}
 \ifdef{\DICE}{\def\PUBLIC{}}{}
 
-\parbox{\textwidth}{\centering
-    \textbf{{\Large Alison~Chan}} \\
-    \textbf{Detroit~MI} \\
-    % apologies for the horrendous mess of brackets but this is the only way that
-    % i could figure out how to not get spurioius spaces
-    \ifdef{\PUBLIC}{\ifdef{\MONSTER}{\href{mailto:resm@alisonc.net}{\nolinkurl{resm@alisonc.net}}%
-        }{\ifdef{\DICE}{\href{mailto:resd@alisonc.net}{\nolinkurl{resd@alisonc.net}}%
-        }{\href{mailto:res@alisonc.net}{\nolinkurl{res@alisonc.net}}%
-    }}}{\href{mailto:hireme@alisonc.net}{\nolinkurl{hireme@alisonc.net}}}~\textbullet~%
-    \ifdef{\PUBLIC}{Email~for~phone~number}{\href{tel:+19092787753}{+1~909~278~7753}}~\textbullet~%
-    \href{https://alisonc.net/}{\nolinkurl{alisonc.net}}~\textbullet~%
-    \href{https://github.com/alis0nc}{\nolinkurl{github.com/alis0nc}}
-}
-\vspace{6pt}
+\begin{tabular}{b{4cm} c b{12cm}}
+	\textbf{\huge Alison~Chan} & \hspace{6pt} & \parbox[b]{12cm}{\textbf{Detroit~MI} \\
+		\ifdef{\PUBLIC}{\ifdef{\MONSTER}{\href{mailto:resm@alisonc.net}{\nolinkurl{resm@alisonc.net}}%
+			}{\ifdef{\DICE}{\href{mailto:resd@alisonc.net}{\nolinkurl{resd@alisonc.net}}%
+				}{\href{mailto:res@alisonc.net}{\nolinkurl{res@alisonc.net}}%
+		}}}{\href{mailto:hireme@alisonc.net}{\nolinkurl{hireme@alisonc.net}}}~\textbullet~%
+		\ifdef{\PUBLIC}{Email~for~phone~number}{\href{tel:+19092787753}{+1~909~278~7753}}~\textbullet~%
+		\href{https://alisonc.net/}{\nolinkurl{alisonc.net}}~\textbullet~%
+		\href{https://github.com/alis0nc}{\nolinkurl{github.com/alis0nc}}}
+\end{tabular}
+\vspace{4pt}
 
 {\large
 Generalist software engineer with a track record of producing clean code, eliminating technical debt,
