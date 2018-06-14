@@ -1,0 +1,53 @@
+dist: xenial
+before_install:
+# decrypt our ssh key
+- openssl aes-256-cbc -K $encrypted_bf6574225a44_key -iv $encrypted_bf6574225a44_iv
+  -in deploy_rsa.enc -out /tmp/deploy_rsa -d
+- eval "$(ssh-agent -s)"
+- chmod 600 /tmp/deploy_rsa
+- ssh-add /tmp/deploy_rsa
+- wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+- tar zxf install-tl-unx.tar.gz
+- install-tl-*/install-tl --profile=travis-ci/texlive.profile
+# this is fragile; TODO figure out how to programmatically get architecture
+- export PATH=$PATH:/tmp/texlive/2017/bin/x86_64-linux/
+# dynamically grab dependencies
+- tlmgr install texliveonfly
+- texliveonfly resume.tex
+script:
+- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume '\def\PROJECTS{}\input{resume}'
+- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_noproj '\input{resume}'
+- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_pub '\def\PROJECTS{}\def\PUBLIC{}\input{resume}'
+- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_noproj_pub '\def\PUBLIC{}\input{resume}'
+- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_full '\def\SHALEM{}\input{resume}'
+- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_full_pub '\def\SHALEM{}\def\PUBLIC{}\input{resume}'
+- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_monster '\def\PROJECTS{}\def\MONSTER{}\input{resume}'
+- pdflatex -interaction=nonstopmode -halt-on-error -jobname=resume_dice '\def\PROJECTS{}\def\DICE{}\input{resume}'
+before_deploy:
+# move the ones which have the phone number to the with-phone-number directory
+# silently continue on error, because this gets run before EACH deploy instead of
+# just once
+- mv resume.pdf with-phone-number/ || true
+- mv resume_noproj.pdf with-phone-number/ || true
+- mv resume_full.pdf with-phone-number/ || true
+# have to unignore PDFs to deploy them. no-op for subsequent times this is run
+- cp .gitignore .gitignore.orig
+- cat .gitignore.orig | sed -e 's/^*.pdf//' > .gitignore
+# clean up install-tl directory
+- rm -rf install-tl-*
+deploy:
+- provider: pages
+  skip_cleanup: true
+  github_token: "${api_key}"
+  on:
+    branch: master
+- provider: script
+  skip_cleanup: true
+  script: ssh -4 -o "StrictHostKeyChecking no" travisdeploy@senmurv.alisonc.net mkdir -p /home/travisdeploy/public_html/resume/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER
+  on:
+    all_branches: true
+- provider: script
+  skip_cleanup: true
+  script: rsync -e 'ssh -4 -o "StrictHostKeyChecking no"' -am --delete-after --include='*.pdf' --include='*/' --exclude='*' $TRAVIS_BUILD_DIR travisdeploy@senmurv.alisonc.net:/home/travisdeploy/public_html/resume/$TRAVIS_BRANCH/$TRAVIS_BUILD_NUMBER
+  on:
+    all_branches: true

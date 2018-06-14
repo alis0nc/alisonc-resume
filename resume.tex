@@ -1,0 +1,198 @@
+% (c) 2002 Matthew Boedicker <mboedick@mboedick.org> (original author) http://mboedick.org
+% (c) 2003-2007 David J. Grant <davidgrant-at-gmail.com> http://www.davidgrant.ca
+% (c) 2008 Nathaniel Johnston <nathaniel@nathanieljohnston.com> http://www.nathanieljohnston.com
+% (c) 2011 Scott Clark <sc932@cornell.edu> http://cam.cornell.edu/~sc932
+% (c) 2017 Alison Chan <alisonc@alisonc.net> http://alisonc.net/
+%
+
+%This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 2.5 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/2.5/ or send a letter to Creative Commons, 543 Howard Street, 5th Floor, San Francisco, California, 94105, USA.
+
+\documentclass[letterpaper,10pt]{article}
+\newlength{\outerbordwidth}
+\pagestyle{empty}
+\raggedbottom
+\raggedright
+\usepackage{tocloft}
+\usepackage{etoolbox}
+\usepackage[hidelinks]{hyperref}
+\usepackage{array}
+% Roboto and Inconsolata fonts
+\usepackage[sfdefault]{roboto}
+\usepackage{zi4}
+\robustify\cftdotfill
+
+%-----------------------------------------------------------
+%Margin setup
+\setlength{\evensidemargin}{-0.25in}
+\setlength{\headheight}{-0.25in}
+\setlength{\headsep}{0in}
+\setlength{\oddsidemargin}{-0.25in}
+\setlength{\paperheight}{11in}
+\setlength{\paperwidth}{8.5in}
+\setlength{\tabcolsep}{0in}
+\setlength{\textheight}{9.75in}
+\setlength{\textwidth}{7in}
+\setlength{\topmargin}{-0.3in}
+\setlength{\topskip}{0in}
+\setlength{\voffset}{0.1in}
+\newlength{\listsep}
+\setlength{\listsep}{-0.1\baselineskip}
+%-----------------------------------------------------------
+%Custom commands
+\newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
+\newcommand{\resheading}[1]{\vspace{4pt}
+  \parbox{\textwidth}{
+      \framebox[\textwidth][l]{
+          {\textbf{\sffamily{\large #1}}}
+      }
+  }
+}
+
+\newcommand{\ressubheading}[4]{
+\begin{tabular*}{\textwidth}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
+        \textbf{#1} & #2 \\
+        \textit{#3} & \textit{#4} \\
+\end{tabular*}\vspace{-6pt}}
+%-----------------------------------------------------------
+\begin{document}
+\ifdef{\MONSTER}{\def\PUBLIC{}}{}
+\ifdef{\DICE}{\def\PUBLIC{}}{}
+
+\begin{tabular}{b{4cm} c b{12cm}}
+	\textbf{\huge Alison~Chan} & \hspace{6pt} & \parbox[b]{12cm}{\textbf{Detroit~MI} \\
+		\ifdef{\PUBLIC}{\ifdef{\MONSTER}{\href{mailto:resm@alisonc.net}{\nolinkurl{resm@alisonc.net}}%
+			}{\ifdef{\DICE}{\href{mailto:resd@alisonc.net}{\nolinkurl{resd@alisonc.net}}%
+				}{\href{mailto:res@alisonc.net}{\nolinkurl{res@alisonc.net}}%
+		}}}{\href{mailto:hireme@alisonc.net}{\nolinkurl{hireme@alisonc.net}}}~\textbullet~%
+		\ifdef{\PUBLIC}{Email~for~phone~number}{\href{tel:+19092787753}{+1~909~278~7753}}~\textbullet~%
+		\href{https://alisonc.net/}{\nolinkurl{alisonc.net}}~\textbullet~%
+		\href{https://github.com/alis0nc}{\nolinkurl{github.com/alis0nc}}}
+\end{tabular}
+\vspace{4pt}
+
+{\large
+Generalist software engineer with a track record of producing clean code, eliminating technical debt,
+and digging into complicated problems spanning multiple systems. 
+% Modify this sentence if needed. 
+Seeking a challenging software engineer position with opportunities to learn new technologies and advance to senior technical roles.
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\resheading{Professional Experience}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ressubheading{Fund for Equal Justice}{Detroit MI}{Assistant}{January 2018 -- present}
+\begin{itemize}\itemsep \listsep \small
+	\resitem{Implemented a mail merge document to produce donation acknowledgement letters.}
+	\resitem{Entered historical donation records from copies of cancelled checks into a spreadsheet.}
+\end{itemize}
+
+\ressubheading{GrubHub}{Oakland County MI}{Driver Partner {\small (independent contractor)}}{November 2017 -- present}
+\begin{itemize}\itemsep \listsep  \small
+	\resitem{Retrieved food orders from restaurants and delivered them to customers in a timely and efficient manner.}
+	\resitem{Communicated with customers and restaurants to assess pickup and delivery needs and provide information of order status.}
+	\resitem{Maintained accurate records of mileage driven in each shift.}
+\end{itemize}
+
+\ressubheading{X by 2}{Farmington Hills MI}{Software Engineering Consultant}{October 2015 -- August 2017}
+\begin{itemize}\itemsep \listsep  \small
+    \resitem{{\bf Client project: Claims System for Auto-Owners Insurance}}
+    \resitem{Reengineered document management integration middleware based on Java EE/Apache Camel/Spring, focusing on cleaner data model, cleaner APIs,
+    	     and better fault tolerance. This led to fewer system errors, improved performance, and easier troubleshooting.}
+    \resitem{Customised COTS application front end with vanilla JavaScript and Gosu code, resulting in improved workflow for end users as well as better performance.}
+    \resitem{Led design review, code review, and data model discussions.}
+    \resitem{Troubleshooted integration errors, working closely with external vendors and other departments in the client 
+    	     organisation. Performed data fixes and code hotfixes in the production environment.}
+    \resitem{{\bf Internal consulting project: Applicant Tracking / HR System}}
+    \resitem{Collaborated with X by 2 principals to gather requirements for a cloud based applicant tracking
+             and HR administration system to replace various home-grown applications.}
+    \resitem{Researched and contacted potential vendors for requirements analysis and demos with stakeholders.}
+\end{itemize}
+
+\ifdef{\SHALEM}{
+\ressubheading{Kettering University}{Flint MI}{Department of Computer Science : Research Assistant}{April 2013 -- June 2015}
+\begin{itemize}\itemsep \listsep \small
+    \resitem{Configured OpenFlow software defined networking switches for Kettering's 
+    	     Laboratory for Advanced Network Applications and developed and tested OpenFlow controller applications.}
+\end{itemize}
+
+
+\ressubheading{Kettering University}{Flint MI}{Department of Customer Service \& Programs : Student Caller}{July 2012 -- September 2015}
+\begin{itemize}\itemsep \listsep \small
+    \resitem{Invited prospective students to Kettering open house events and followed up with postcards 
+             and phone calls after those events.}
+\end{itemize}
+
+\ressubheading{Livio}{Ferndale MI}{Software Engineering Co-op}{September 2012 -- December 2012}
+\begin{itemize}\itemsep \listsep \small
+    \resitem{Developed iOS apps and backend network code for sales demonstrations.}
+\end{itemize}
+}{}
+
+\ressubheading{New Eagle}{Ann Arbor MI}{Software Engineering Co-op}{October 2010 -- June 2012}
+\begin{itemize}\itemsep \listsep \small
+    \resitem{Created HMI applications for embedded display hardware and PC applications to calibrate electronic control modules.}
+    \resitem{Worked with product managers to evaluate products being considered for distribution.}
+\end{itemize}
+%\def\OMITVOLUNTEER{}
+
+\resheading{Volunteer Experience}
+
+\ressubheading{Kibbutz Detropia}{Detroit MI}{Tech Maven}{September 2017 -- present}
+\begin{itemize} \itemsep \listsep \small
+	\resitem{Overhauled Kibbutz Detropia's online presence, including revamping the website (\url{http://kibbutzdetropia.org}), administering a Google Apps for Nonprofits instance, and updating social media profiles.}
+	\resitem{Tended vegetable gardens and cleaned up litter and illegal dump sites in the neighborhood.}
+	\resitem{Cooked for weekly vegan/vegetarian public Shabbat dinners.}
+\end{itemize}
+
+\ressubheading{Penguicon}{Southfield MI}{Assistant Head of Logistics $\rightarrow$ Head of Logistics}{December 2015 -- present}
+\begin{itemize} \itemsep \listsep \small
+	\resitem{Oversaw the annual process of inventorying the property of a 1600-attendee open source/science fiction/DIY convention.}
+	\resitem{Coordinated the transportation of convention property between the storage location and the convention venue, including scheduling load-in and load-out times, determining volunteer staff needs, and directing volunteers during load-in and load-out.}
+\end{itemize}
+
+\ifdef{\SHALEM}{\def\PROJECTS{}}{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\resheading{Projects}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{-0.5\baselineskip}
+\begin{itemize} \itemsep 2\listsep
+	\item {\bf Bendyboi Tracker} (\url{https://github.com/alis0nc/bendyboi-tracker}): A Discord bot that serves as a front end to the bus tracker API of a local public transit system. It provides a query interface to the bus tracker through Discord messages, and sends alerts when certain buses begin or end their runs.
+    \item {\bf DDOT Bus Mapping} (in progress): Surveying Detroit Department of Transportation bus routes and entering stop locations in OpenStreetMap.
+    \item {\bf psoaas} (\url{https://github.com/alis0nc/psoaas}): A web service wrapper for the PDF file size optimiser \texttt{pdfsizeopt}, built with Node.js and Express.
+    
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\resheading{Skills}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{-0.5\baselineskip}
+\begin{itemize} \itemsep 2\listsep
+    
+    \item {\bf Programming languages:} Python; Java; Gosu; JavaScript; shell script; C$\sharp$
+    \item {\bf Frameworks:} Apache Camel; Spring Web Services; Spring Boot; Express
+    \item {\bf Databases:} MS SQL Server
+    \item {\bf Operating systems:} Linux (desktop \& embedded); Windows
+    \item {\bf Networking:} Ubiquiti EdgeOS and UniFi platform; TCP/IP; IPv6 dual-stack environments
+    \item {\bf Workflow:} git; GitHub; JIRA; Travis-CI; Jenkins; bash script
+    
+\end{itemize}
+%\ifdef{\SHALEM}{\eject}{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\resheading{Education}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ressubheading{Kettering University}{Flint MI}{Coursework completed for dual degree BS Computer Science / BS Computer Engineering}{2010 -- 2015}
+\begin{itemize}\itemsep \listsep \small
+   \resitem{Systems and Data Security concentration}
+   \resitem{International Studies minor}
+\end{itemize}
+
+
+\end{document}
